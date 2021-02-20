@@ -1,0 +1,27 @@
+﻿/// <summary>
+/// This file defines the GameSession class.
+/// </summary>
+
+namespace Engine.ViewModels
+{
+    using Engine.Models;
+
+    /// <summary>
+    /// A view model representing the game session which acts as a controlling layer between the view and the models.
+    /// </summary>
+    public class GameSession
+    {
+        /// <summary>
+        /// Gets or sets the current <see cref="Player"/> of the game.
+        /// </summary>
+        Player CurrentPlayer { get; set; }
+
+        /// <summary>
+        /// Constructs a new <see cref="GameSession"/> instance.
+        /// </summary>
+        public GameSession()
+        {
+            this.CurrentPlayer = new Player("Some Call Me Tim", "Wizard");
+        }
+    }
+}
