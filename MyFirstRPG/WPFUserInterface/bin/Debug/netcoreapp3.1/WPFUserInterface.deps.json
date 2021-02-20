@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "WPFUserInterface/1.0.0": {
+        "runtime": {
+          "WPFUserInterface.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WPFUserInterface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
