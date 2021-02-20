@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUserInterface"
+        xmlns:dvm="clr-namespace:Engine.Models;assembly=Engine"
+        d:DataContext="{d:DesignInstance dvm:Player}"
         mc:Ignorable="d"
         Title="Adventure RPG" Height="768" Width="1024">
     <Grid>
@@ -17,7 +19,34 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="LightGray"/>
-        <Label Grid.Row="1" Grid.Column="0" Content="Player Data" Background="LightGoldenrodYellow"/>
+        <Grid Grid.Row="1" Grid.Column="0" Background="LightGoldenrodYellow">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Class:"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="HP:"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.HealthString}"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Level:"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="XP:"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Gold:"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
+            <Button Grid.Row="6" Grid.Column="0" Content="Change HP" Click="ButtonBase_OnClick"/>
+        </Grid>
         <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="LightSteelBlue"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="LightGreen"/>
         <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="Crimson"/>

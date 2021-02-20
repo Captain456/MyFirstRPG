@@ -14,7 +14,7 @@ namespace Engine.ViewModels
         /// <summary>
         /// Gets or sets the current <see cref="Player"/> of the game.
         /// </summary>
-        Player CurrentPlayer { get; set; }
+        public Player CurrentPlayer { get; set; }
 
         /// <summary>
         /// Constructs a new <see cref="GameSession"/> instance.
