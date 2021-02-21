@@ -4,9 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUserInterface"
-        xmlns:dvm="clr-namespace:Engine.Models;assembly=Engine"
-        d:DataContext="{d:DesignInstance dvm:Player}"
         mc:Ignorable="d"
+        FontSize="11pt"
         Title="Adventure RPG" Height="768" Width="1024">
     <Grid>
         <Grid.RowDefinitions>
@@ -47,8 +46,29 @@
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
             <Button Grid.Row="6" Grid.Column="0" Content="Change HP" Click="ButtonBase_OnClick"/>
         </Grid>
-        <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="LightSteelBlue"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="LightGreen"/>
         <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="Crimson"/>
+        <Grid Grid.Row="1" Grid.Column="1" Background="LightSteelBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="Gainsboro" BorderThickness="1">
+                <Grid Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="{Binding CurrentLocation.Name}"/>
+                    <Image Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Source="{Binding CurrentLocation.ImagePath}"/>
+                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding CurrentLocation.Description}"/>
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </Window>
