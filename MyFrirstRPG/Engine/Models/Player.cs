@@ -9,7 +9,7 @@ namespace Engine.Models
     /// <summary>
     /// Represents the player of the RPG game.
     /// </summary>
-    public class Player : INotifyPropertyChanged
+    public class Player : BaseNotificationClass
     {
         /// <summary>
         /// The name of the player.
@@ -172,11 +172,6 @@ namespace Engine.Models
         }
 
         /// <summary>
-        /// The event handler for when a property is changed.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
         /// Constructs a new instance of a <see cref="Player"/>.
         /// </summary>
         /// <param name="name">The name of the player.</param>
@@ -190,16 +185,6 @@ namespace Engine.Models
             this.ExperiencePoints = 0;
             this.Level = 1;
             this.Gold = 0;
-        }
-
-        /// <summary>
-        /// Sends a notification that a property was changed.
-        /// </summary>
-        /// <param name="propertyName"></param>
-        public virtual void OnPropertyChanged(string propertyName)
-        {
-            // If PropertyChanged is null, do nothing. Otherwise, invoke the event handler.
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

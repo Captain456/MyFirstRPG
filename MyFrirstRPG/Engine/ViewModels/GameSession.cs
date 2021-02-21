@@ -11,7 +11,7 @@ namespace Engine.ViewModels
     /// <summary>
     /// A view model representing the game session which acts as a controlling layer between the view and the models.
     /// </summary>
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession : BaseNotificationClass
     {
         /// <summary>
         /// The current location of the player in the game world.
@@ -93,11 +93,6 @@ namespace Engine.ViewModels
         }
 
         /// <summary>
-        /// The event handler for when a property is changed.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
         /// Constructs a new <see cref="GameSession"/> instance.
         /// </summary>
         public GameSession()
@@ -137,16 +132,6 @@ namespace Engine.ViewModels
         public void MoveSouth()
         {
             this.CurrentLocation = this.CurrentWorld.GetLocationAt(this.CurrentLocation.XCoordinate, this.CurrentLocation.YCoordinate - 1);
-        }
-
-        /// <summary>
-        /// Sends a notification that a property was changed.
-        /// </summary>
-        /// <param name="propertyName"></param>
-        public virtual void OnPropertyChanged(string propertyName)
-        {
-            // If PropertyChanged is null, do nothing. Otherwise, invoke the event handler.
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
