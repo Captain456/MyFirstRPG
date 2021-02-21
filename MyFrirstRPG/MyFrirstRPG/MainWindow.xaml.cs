@@ -25,14 +25,43 @@
         }
 
         /// <summary>
-        /// A test function that increases the amount of hit points on each button click and loops back to 0 if it exceeds the max hit points.
+        /// Handles when the "North" button is clicked by moving the player north, if possible.
         /// </summary>
-        /// <param name="sender">The sender of the request</param>
-        /// <param name="routedEventArgs">Routed event arguments</param>
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs routedEventArgs)
+        /// <param name="sender">The sender of the routed event.</param>
+        /// <param name="routedEventArgs">The arguments of the routed event.</param>
+        private void OnClick_MoveNorth(object sender, RoutedEventArgs routedEventArgs)
         {
-            this.gameSession.CurrentPlayer.HitPoints = (this.gameSession.CurrentPlayer.HitPoints + 1) % (this.gameSession.CurrentPlayer.MaximumHitPoints + 1);
-            this.gameSession.CurrentPlayer.Level = this.gameSession.CurrentPlayer.Level + 1;
+            this.gameSession.MoveNorth();
+        }
+
+        /// <summary>
+        /// Handles when the "West" button is clicked by moving the player west, if possible.
+        /// </summary>
+        /// <param name="sender">The sender of the routed event.</param>
+        /// <param name="routedEventArgs">The arguments of the routed event.</param>
+        private void OnClick_MoveWest(object sender, RoutedEventArgs routedEventArgs)
+        {
+            this.gameSession.MoveWest();
+        }
+
+        /// <summary>
+        /// Handles when the "East" button is clicked by moving the player east, if possible.
+        /// </summary>
+        /// <param name="sender">The sender of the routed event.</param>
+        /// <param name="routedEventArgs">The arguments of the routed event.</param>
+        private void OnClick_MoveEast(object sender, RoutedEventArgs routedEventArgs)
+        {
+            this.gameSession.MoveEast();
+        }
+
+        /// <summary>
+        /// Handles when the "South" button is clicked by moving the player south, if possible.
+        /// </summary>
+        /// <param name="sender">The sender of the routed event.</param>
+        /// <param name="routedEventArgs">The arguments of the routed event.</param>
+        private void OnClick_MoveSouth(object sender, RoutedEventArgs routedEventArgs)
+        {
+            this.gameSession.MoveSouth();
         }
     }
 }
