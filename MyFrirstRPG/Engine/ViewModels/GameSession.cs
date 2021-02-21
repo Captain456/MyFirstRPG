@@ -98,7 +98,7 @@ namespace Engine.ViewModels
         public GameSession()
         {
             this.CurrentPlayer = new Player("Some Call Me Tim", "Wizard");
-            this.CurrentWorld = new WorldFactory().CreateWorld();
+            this.CurrentWorld = WorldFactory.CreateWorld();
             this.CurrentLocation = this.CurrentWorld.GetLocationAt(0, -1);
         }
 
@@ -107,7 +107,10 @@ namespace Engine.ViewModels
         /// </summary>
         public void MoveNorth()
         {
-            this.CurrentLocation = this.CurrentWorld.GetLocationAt(this.CurrentLocation.XCoordinate, this.CurrentLocation.YCoordinate + 1);
+            if (this.HasLocationToNorth)
+            {
+                this.CurrentLocation = this.CurrentWorld.GetLocationAt(this.CurrentLocation.XCoordinate, this.CurrentLocation.YCoordinate + 1);
+            }
         }
 
         /// <summary>
@@ -115,7 +118,10 @@ namespace Engine.ViewModels
         /// </summary>
         public void MoveWest()
         {
-            this.CurrentLocation = this.CurrentWorld.GetLocationAt(this.CurrentLocation.XCoordinate - 1, this.CurrentLocation.YCoordinate);
+            if (this.HasLocationToWest)
+            {
+                this.CurrentLocation = this.CurrentWorld.GetLocationAt(this.CurrentLocation.XCoordinate - 1, this.CurrentLocation.YCoordinate);
+            }
         }
 
         /// <summary>
@@ -123,7 +129,10 @@ namespace Engine.ViewModels
         /// </summary>
         public void MoveEast()
         {
-            this.CurrentLocation = this.CurrentWorld.GetLocationAt(this.CurrentLocation.XCoordinate + 1, this.CurrentLocation.YCoordinate);
+            if (this.HasLocationToEast)
+            {
+                this.CurrentLocation = this.CurrentWorld.GetLocationAt(this.CurrentLocation.XCoordinate + 1, this.CurrentLocation.YCoordinate);
+            }
         }
 
         /// <summary>
@@ -131,7 +140,10 @@ namespace Engine.ViewModels
         /// </summary>
         public void MoveSouth()
         {
-            this.CurrentLocation = this.CurrentWorld.GetLocationAt(this.CurrentLocation.XCoordinate, this.CurrentLocation.YCoordinate - 1);
+            if (this.HasLocationToSouth)
+            {
+                this.CurrentLocation = this.CurrentWorld.GetLocationAt(this.CurrentLocation.XCoordinate, this.CurrentLocation.YCoordinate - 1);
+            }
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Engine.Factories
     /// <summary>
     /// A factory class for creating a <see cref="World"/> instance.
     /// </summary>
-    internal class WorldFactory
+    internal static class WorldFactory
     {
-        internal World CreateWorld()
+        internal static World CreateWorld()
         {
             World world = new World();
 
